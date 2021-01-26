@@ -1,6 +1,7 @@
 // Problem Link - https://www.hackerrank.com/challenges/designer-pdf-viewer/problem
 
 #include <bits/stdc++.h>
+#define ll long long
 
 using namespace std;
 
