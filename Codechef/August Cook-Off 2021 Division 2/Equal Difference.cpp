@@ -1,3 +1,5 @@
+// Problem Link - https://www.codechef.com/COOK132B/problems/EQDIFFER
+
 /*-----------------------------------------------------------------
                     Always beleive you can.
 -------------------------------------------------------------------*/
@@ -224,38 +226,34 @@ string decToBinary(int n)
 
 void its_Function()
 {
-ll n,m,k;
-cin>>n>>m>>k;
-vector<string> vect(m);
-string fed;
-ll a;
-for(ll i=0;i<m;i++)
-{
-cin>>a;
-vect[i] = decToBinary(a);
-}
-cin>>a;
-fed = decToBinary(a);
-ll ans = 0;
-for(ll i=0;i<vect.size();i++)
-{
-    ll count = 0;
-    for(ll j = 0;j<32;j++)
+    ll n;
+    cin>>n;
+    vector<ll> vect(n);
+    map<ll,ll> m;
+    for(ll i=0;i<n;i++)
     {
-        if(vect[i][j]!=fed[j])
-        {
-            count++;
-        }
+        cin>>vect[i];
+        m[vect[i]]++;
     }
-    if(count<=k)
+    if(n==1 or n==2)
     {
-        ans++;
+        cout<<0;
+        return;
+    }
+    ll maxi = INT_MIN;
+    for(auto i:m)
+    {
+        maxi = max(maxi,i.second);
+    }
+    if(maxi==1)
+    {
+        cout<<n-2;
+    }
+    else
+    {
+        cout<<n-maxi;
     }
 }
-cout<<ans;
-}
-
-
 
 //--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
 int main()
@@ -266,14 +264,14 @@ int main()
     inOt();
 #endif
     cout<<fixed;
-    /*ll t;
+    ll t;
     cin>>t;
     while(t--)
     {
         its_Function();
         cout<<"\n";
     }
-    */ its_Function();return 0;
+    /*its_Function();*/return 0;
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
