@@ -1,2 +1,2 @@
 # Competitive-Programming
-Contains Solution of CP questions.
+Contains solution of competitive programming questions.
