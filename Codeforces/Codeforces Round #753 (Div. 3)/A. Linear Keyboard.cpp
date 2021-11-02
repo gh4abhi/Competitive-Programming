@@ -1,3 +1,5 @@
+// Problem Link - https://codeforces.com/contest/1607/problem/A
+
 /*-----------------------------------------------------------------
                     Always beleive you can.
 -------------------------------------------------------------------*/
@@ -31,13 +33,6 @@ using namespace std;
 void printvec(vector<ll> v) {
     for(auto x:v)
         cout<<x<<" ";
-}
-
-ll fact(ll n)   {
-    ll m=1;
-    for(ll i=1;i<=n;i++)
-        m*=i;
-    return m;
 }
 
 void inOt()
@@ -103,6 +98,7 @@ vector<ll> primeFactors(ll n)
 vector<ll> pr;
 ll h = 1;
 ll st = 19000;
+bool prime[100];
 vector<ll> SieveOfEratosthenes(ll n)
 {
     // Create a boolean array
@@ -111,7 +107,6 @@ vector<ll> SieveOfEratosthenes(ll n)
     // A value in prime[i] will
     // finally be false if i is
     // Not a prime, else true.
-    bool prime[n + 1];
     memset(prime, true, sizeof(prime));
 
     for (ll p = 2; p * p <= n; p++)
@@ -131,12 +126,9 @@ vector<ll> SieveOfEratosthenes(ll n)
         }
     }
     vector<ll> vect;
-    // Print all prime numbers
     for (int p = 2; p <= n; p++)
         if (prime[p])
-        {
-            vect.push_back(p);
-        }
+            vect.pb(p);
     return vect;
 }
 int LCSubStr(char* X, char* Y, int m, int n)
@@ -181,10 +173,10 @@ bool compare(const pair<ll, ll>&i, const pair<ll, ll>&j)
     {
         return i.second > j.second;
     }
-    else
+    /*else
     {
         return i.first < j.first;
-    }
+    }*/
 }
 int isSubstring(string s1, string s2)
 {
@@ -220,42 +212,148 @@ string decToBinary(int n)
     }
     return ans;
 }
-//------------------------------------------------------------------------------Code---------------------------------------------------------------------------------
-
-void its_Function()
+long long gcd(long long int a, long long int b)
 {
-ll n,m,k;
-cin>>n>>m>>k;
-vector<string> vect(m);
-string fed;
-ll a;
-for(ll i=0;i<m;i++)
-{
-cin>>a;
-vect[i] = decToBinary(a);
+    if (b == 0)
+        return a;
+    return gcd(b, a % b);
 }
-cin>>a;
-fed = decToBinary(a);
-ll ans = 0;
-for(ll i=0;i<vect.size();i++)
+
+// Function to return LCM of two numbers
+long long lcm(int a, int b)
 {
-    ll count = 0;
-    for(ll j = 0;j<32;j++)
+    return (a / gcd(a, b)) * b;
+}
+
+ll checkPalindrome(string str)
+{
+    ll n = str.length();
+    ll start = 0;
+    ll end = 0;
+    if(n&1)
     {
-        if(vect[i][j]!=fed[j])
+        start = (n+1)/2;
+        end = (n+1)/2;
+    }
+    else
+    {
+        start = n/2;
+        end = n/2+1;
+    }
+    start--;
+    end--;
+    ll count = 0;
+    while(start>=0 and end<n)
+    {
+        if(str[start]!=str[end])
         {
             count++;
         }
+        start--;
+        end++;
     }
-    if(count<=k)
+    if(count==0) {
+        return 1;
+    }
+    else
     {
-        ans++;
+        return 0;
     }
 }
-cout<<ans;
+
+/*string s;
+ll numRows;
+cin>>s>>numRows;
+vector<char> vect[numRows];
+for(ll i=0;i<numRows;i++)
+{
+for(ll j=0;j<s.length();j++)
+{
+vect[i].pb('0');
+}
+}
+ll counter=0;
+ll r = 0,c=0;
+ll start = 0;
+while(counter<=s.length())
+{
+if(r==0)
+{
+for(ll i=0;i<numRows;i++)
+{
+vect[i][c] = s[counter];
+counter++;
+if(counter>s.length()-1)
+{
+break;
+}
+}
+r = numRows-1;
+}
+else
+{
+c++;
+r--;
+vect[r][c] = s[counter];
+counter++;
+if(r==0)
+counter--;
+if(counter>s.length()-1)
+{
+break;
+}
+}
+}
+for(auto i:vect)
+{
+for(auto j:i)
+{
+cout<<j<<" ";
+}
+cout<<endl;
+}
+string str = "";
+for(ll i=0; i<numRows;i++)
+{
+for(ll j=0;j<c;j++)
+{
+if(vect[i][j]!='0')
+str+= vect[i][j];
+}
+}
+cout<<str<<endl;*/
+
+ll fact(ll n)
+{
+    ll res = 1;
+    for (ll i = 2; i <= n; i++)
+        res = res * i;
+    return res;
 }
 
 
+ll nCr(ll n, ll r)
+{
+    return fact(n) / (fact(r) * fact(n - r));
+}
+
+//------------------------------------------------------------------------------Code---------------------------------------------------------------------------------
+
+void its_Function() {
+   string str1,str2;
+    map<char,ll> m;
+   cin>>str1>>str2;
+    for(ll i = 0;i<str1.length();i++)
+    {
+        m[str1[i]] = i;
+    }
+   ll ans = 0;
+   for(ll i=1;i<str2.length();i++)
+   {
+       ans += abs(m[str2[i-1]]-m[str2[i]]);
+   }
+   cout<<ans;
+}
 
 //--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
 int main()
@@ -266,14 +364,22 @@ int main()
     inOt();
 #endif
     cout<<fixed;
-    /*ll t;
+    map<char,ll> m;
+    char a = 'a';
+    for(ll i=1;i<26;i++)
+    {
+        m[a] = i;
+        a++;
+    }
+    ll t;
     cin>>t;
     while(t--)
     {
+
         its_Function();
-        cout<<"\n";
+        cout<<endl;
     }
-    */ its_Function();return 0;
+//    its_Function();return 0;
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -282,6 +388,4 @@ int main()
 
 
 
-
-
-
+ 
