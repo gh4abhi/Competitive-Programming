@@ -4,42 +4,24 @@
 
 class Solution {
 public:
-    void sortColors(vector<int>& nums) {
-        ll zero=0,one=0,two=0;
-        for(auto i:nums)
+    void sortColors(vector<int>& a) {
+        ll low = 0, mid =0 , high = a.size()-1;
+        while(mid<=high)
         {
-            if(i==0)
+            if(a[mid]==0)
             {
-                zero++;
+                swap(a[low],a[mid]);
+                low = low + 1;
+                mid = mid + 1;
             }
-            else if(i==1)
+            else if(a[mid]==1)
             {
-                one++;
+                mid = mid +1;
             }
             else
             {
-                two++;
-            }
-        }
-        ll sum = one+two+zero;
-        for(ll i=0;i<sum;i++)
-        {
-            cout<<i<<" ";
-            if(zero!=0)
-            {
-              nums[i]=0;
-                zero--;
-            }
-            else if(one!=0)
-            {
-                // cout<<1<<"-"<<i<<" "<<one<<endl;
-                nums[i] = 1;
-                one--;
-            }
-            else
-            {
-                nums[i] = 2;
-                two--;
+                swap(a[mid],a[high]);
+                high = high-1;
             }
         }
     }
