@@ -251,51 +251,80 @@ bool compare(const pair<ll, ll>&i, const pair<ll, ll>&j)
 
 //------------------------------------------------------------------------------Code---------------------------------------------------------------------------------
 
-void sol()
+void its_Function() {
+ll n,k;
+cin>>n>>k;
+ll maxi  = INT_MIN;
+vector<ll> num;
+ll val = n;
+while(val)
 {
-    ll n,m,tmp,fact,rem;
-    cin >> n >> m;
-    vector<ll> v;
-    tmp = n;
-
-    while(tmp) {
-        ll x = tmp%10;
-        tmp /= 10;
-        v.pb(x);
-    }
-    
-    if(m > 0) {
-        ll sz = v.size();
-        sort(full(v));
-        while(m && v[0] < 9) {
-            v[0]++;
-            m--;
-            sort(full(v));
+    ll r = val%10;
+    num.pb(r);
+    val/=10;
+}
+ll count = 0;
+reverse(full(num));
+ll ind = 0;
+ll preCheck = 1;
+for(ll i=0;i<num.size();i++)
+{
+    preCheck*=9;
+}
+sort(full(num));
+while(k)
+{
+    ll pro = 1;
+    if(k>0)
+    {
+        if(num[0]!=9)
+        {
+            num[0]+=1;
+            k--;
         }
     }
-
-    ll ans = 1;
-    for(auto i : v) ans *= i;
-
-    cout<<ans<<'\n';
+    for(ll i=0;i<num.size();i++)
+    {
+        pro*=num[i];
+    }
+    if(pro==preCheck)
+    {
+        cout<<pro;
+        return;
+    }
+    sort(full(num));
+}
+ll pro = 1;
+    for(ll i=0;i<num.size();i++)
+    {
+        pro*=num[i];
+    }
+    cout<<pro;
 }
 
+
+//--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
 
+    BOOST;
+#ifndef ONLINE_JUDGE
+    inOt();
+#endif
+    cout<<fixed;
     ll t;
-    cin >> t;
-
-    while (t--)
+    cin>>t;
+    while(t--)
     {
-        sol();
+        its_Function();
+        cout<<endl;
     }
+//    its_Function();
 
     return 0;
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 
 
