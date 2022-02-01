@@ -275,31 +275,25 @@ pair<ll,ll> solve(ll n)
 //------------------------------------------------------------------Code--------------------------------------------------------------------------------------------
 
 void its_Function() {
-    ll n;
-    cin>>n;
-    vector<string> vect(n);
-    map<string,vector<ll>> m;
-    multiset<string> prefix,suffix;
-    forl(n)
+ll n;
+cin>>n;
+vector<string> vect(n);
+map<string,vector<ll>> m;
+forl(n)
+{
+    cin>>vect[i];
+    m[vect[i]].pb(i);
+}
+for(ll i=0;i<n;i++)
+{
+    string str = vect[i];
+    if(str.length()==1)
     {
-        cin>>vect[i];
-        m[vect[i]].pb(i);
-        suffix.insert(vect[i]);
+        cout<<"YES";
+        return;
     }
-
-    forl(n)
-    {
-        string str = vect[i];
-        if(prefix.size())
-        prefix.erase(prefix.find(vect[i]));
-        suffix.erase(suffix.find(vect[i]));
         reverse(full(str));
-        if(vect[i].length()==1)
-        {
-            cout<<"YES";
-            return;
-        }
-        if(suffix.count(str)>0)
+        if(m.count(str)>0)
         {
             cout<<"YES";
             return;
@@ -307,25 +301,45 @@ void its_Function() {
 
         if(str.length()==3)
         {
-            if(str[0]==str[2])
+            string one = "";
+            one += str[0];
+            one += str[1];
+            string two = "";
+            two+= str[1];
+            two+= str[2];
+            if(m.count(one)>0)
             {
-                cout<<"YES";
-                return;
+                for(auto k:m[one])
+                {
+                    if(k<i)
+                    {
+                        cout<<"YES";
+                        return;
+                    }
+                    else
+                    {
+                      break;
+                    }
+                }
             }
-            if(prefix.count(str.substr(0,2))>0)
+            if(m.count(two)>0)
             {
-                cout<<"YES";
-                return;
-            }
-            if(prefix.count(str.substr(1,2))>0)
-            {
-                cout<<"YES";
-                return;
+                for(auto k:m[two])
+                {
+                    if(k>i)
+                    {
+                        cout<<"YES";
+                        return;
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
             }
         }
-        prefix.insert(vect[i]);
     }
-    cout<<"NO";
+cout<<"NO";
 }
 
 //--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
