@@ -15,3 +15,5 @@ class Solution:
                 di.pop(i)
             else :
                 di[i] = di[i] -1
+n = input()
+print(n)                
