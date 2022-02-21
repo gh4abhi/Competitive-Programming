@@ -1,6 +1,6 @@
 // Problem Link - https://leetcode.com/problems/majority-element/
 
-#define ll int
+/*#define ll int
 
 class Solution {
 public:
@@ -40,5 +40,31 @@ public:
         {
             return value;
         }
+    }
+};
+*/
+
+// Boyer-Moore Voting Algorithm
+
+#define ll int
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        ll candidateInd = 0;
+        ll count = 1;
+        for(ll i=1;i<nums.size();i++)
+        {
+            if(count==0)
+            {
+                candidateInd = i;
+                count = 1;
+            }
+            else if(nums[i]==nums[candidateInd])
+                count++;
+            else
+                count--;
+        }
+        return nums[candidateInd];
     }
 };
