@@ -325,61 +325,19 @@ void io(ll r)
 void its_Function() {
  ll n;
  cin>>n;
- vec vect(n+1);
- vect[0] = -1;
- ll one = -1;
- forl(n){
- cin>>vect[i+1];
- if(vect[i+1]==1)
-    one = i+1;
-}
-
-/* for(auto i:vect)
-    cout<<i<<" ";*/
+ vec vect(n);
+ map<ll,ll> m;
+ forl(n)
+ {
+ cin>>vect[i];
+ m[vect[i]-i]++;
+ }
  ll count = 0;
-for(ll i=1;i<=n;i++)
-{
-    ll val = vect[i];
-    ll sum = 0;
-    if(vect[i]==1)
-        continue;
-    while(sum-i<=i)
-        sum+=val;
-    // cout<<sum<<endl;
-    for(ll j = sum;;j+=val)
-    {
-        ll ind = j - i;
-        if(ind>n)
-            break;
-        double check = ((i+ind)*1.0)/(vect[i]*1.0);
-        double sCheck = vect[ind];
-        if(sCheck==check)
-            count++;
-    }
-}
-if(one!=-1)
-{
-    ll val = vect[one];
-    ll sum = val;
-    ll i = one;
-    /*while(sum-i<i)
-        sum+=val;*/
-    // cout<<sum<<endl;
-    for(ll j = sum;;j+=val)
-    {
-
-        ll ind = j - i;
-        if(ind<=i)
-            continue; 
-        if(ind>n)
-            break;
-        double check = ((i+ind)*1.0)/(vect[i]*1.0);
-        double sCheck = vect[ind];
-        if(sCheck==check)
-            count++;
-    }
-}
-cout<<count;
+ for(auto i:m)
+ {
+    count += ((i.second)*(i.second-1))/2;
+ }
+ cout<<count;
 }
  
 //--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
@@ -403,7 +361,6 @@ int main()
     return 0;
 }
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
  
  
  
