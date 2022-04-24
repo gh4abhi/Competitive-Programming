@@ -6,8 +6,6 @@ class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
         ll n = letters.size();
-        if(target>=letters[n-1])
-            return (*letters.begin());
         ll start = 0, end = n-1;
         while(start<=end)
         {
@@ -17,6 +15,6 @@ public:
             else
                 end = mid - 1;
         }
-        return letters[start];
+        return letters[start%n];
     }
 };
