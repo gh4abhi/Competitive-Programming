@@ -1,5 +1,3 @@
-// Problem Link - https://codeforces.com/problemset/problem/1583/B
-
 /*-----------------------------------------------------------------
                     Gamers Never Quit.
 -------------------------------------------------------------------*/
@@ -322,19 +320,6 @@ void io(ll r)
 }
 //------------------------------------------------------------------Code--------------------------------------------------------------------------------------------
  
- void add(map<vector<ll>,ll>& ed, map<ll,vector<ll>>& nodes, ll& val, ll& b)
- {
-    while(nodes[val].size()==2)
-    {
-        if(ed.count({val,nodes[val][0],b})==0)
-            val = nodes[val][0];
-        else if(ed.count({val,nodes[val][1],b})==0)
-            val = nodes[val][1];
-    }
-    if(nodes[val].size()<2)
-        nodes[val].pb(b);
- }
-
 void its_Function() {
  ll n,m;
  cin>>n>>m;
