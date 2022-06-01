@@ -4,25 +4,25 @@
 class Solution {
 public:
     int jump(vector<int>& nums) {
-        ll n = nums.size();
-        vector<ll> dp(n,0);
-        dp[n-1] = 1;
-        for(ll i=n-2;i>=0;i--)
+        if(nums.size()==1)
+            return 0;
+        ll destination = nums[0];
+        ll steps = nums[0];
+        ll jumps = 1;
+        for(ll i=1;i<nums.size();i++)
         {
-            ll mini = INT_MAX;
-            for(ll j=1;j<=nums[i];j++)
+            destination = max(destination,nums[i]+i);
+            if(i==nums.size()-1)
+                return jumps;
+            steps--;
+            if(steps==0)
             {
-                if(i+j>n-1)
-                    break;
-                if(dp[i+j]==0)
-                   continue; 
-                mini = min(dp[i+j],mini);
+                if(i>=destination)
+                    return -1;
+                jumps++;
+                steps = destination - i;
             }
-            
-            if(mini==INT_MAX)
-                continue;
-            dp[i] = 1 + mini;
         }
-        return dp[0]-1;
+        return -1;
     }
 };
