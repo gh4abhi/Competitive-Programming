@@ -1,5 +1,5 @@
 # Competitive Programming
-This repository contains solution of competitive programming questions.
+This repository contains solution of various problems present on various competitive programming platforms.
 | |PROFILE|
 |----------------|-
 |Codeforces|`gh4abhis`          
