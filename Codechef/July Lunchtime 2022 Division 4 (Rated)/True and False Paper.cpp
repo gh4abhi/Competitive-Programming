@@ -1,4 +1,4 @@
-// Problem Link - https://www.codechef.com/submit/TFPAPER?tab=statement
+// Problem Link - https://www.codechef.com/submit/LASTLEVELS?tab=statement
 
 /*-----------------------------------------------------------------
                     Gamers Never Quit.
@@ -323,9 +323,15 @@ void io(ll r)
 //------------------------------------------------------------------Code--------------------------------------------------------------------------------------------
  
 void its_Function() {
- ll n,k;
- cin>>n>>k;
- cout<<n-k;
+ ll x,y,z;
+ cin>>x>>y>>z;
+ ll sum = x*y;
+ ll one = x/3;
+ if(x%3==0)
+    one--;
+if(one>0)
+    sum += z*one;
+cout<<sum;
 }
  
 //--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
