@@ -1,0 +1,9 @@
+-- Problem Link - https://www.hackerrank.com/challenges/binary-search-tree-1/problem?isFullScreen=true
+
+select case
+    when p is null then concat(N,' Root')
+    when n in (select distinct p from bst) then concat(N,' Inner')
+    else concat(N,' Leaf')
+    end
+from bst
+order by n;
