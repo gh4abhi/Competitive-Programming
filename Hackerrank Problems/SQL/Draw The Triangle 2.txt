@@ -1,0 +1,6 @@
+-- Problem Link - https://www.hackerrank.com/challenges/draw-the-triangle-2/problem?h_r=next-challenge&h_v=legacy&h_r=next-challenge&h_v=zen
+
+set @num = 0;
+select repeat('* ',@num:=@num+1)
+from information_schema.tables
+where @num<20;
