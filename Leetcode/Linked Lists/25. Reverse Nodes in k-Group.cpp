@@ -14,66 +14,30 @@
  */
 class Solution {
 public:
-    
-    ListNode *th = nullptr, *tt = nullptr, *oh = nullptr, *ot = nullptr;
-    
-    void addFirstNode(ListNode* node)
-    {
-        if(th==nullptr)
-        {
-            th = node;
-            tt = node;
-        }
-        else
-        {
-            node->next = th;
-            th = node;
-        }
-    }
-    
-    ll findLength(ListNode* head)
-    {
-        ll n = 0;
-        ListNode*temp = head;
-        while(temp!=nullptr)
-        {
-            n++;
-            temp = temp->next;
-        }
-        return n;
-    }
-    
     ListNode* reverseKGroup(ListNode* head, int k) {
-        if(head==nullptr or head->next==nullptr or k==1)
-            return head;
-        ListNode* cur = head, *fow = nullptr;
-        ll n = findLength(head);
-        
-        while(n>=k)
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = head;
+        ListNode* cur = dummy;
+        ListNode* pre = dummy;
+        ListNode* nex = dummy;
+        ll count = 0;
+        while(cur->next)
+            count++,cur=cur->next;
+        while(count>=k)
         {
-            ll ck = k;
-            while(ck--)
+            cur = pre->next;
+            nex = cur->next;
+            ll op = k-1;
+            while(op--)
             {
-                fow = cur->next;
-                cur->next = nullptr;
-                addFirstNode(cur);
-                cur = fow;
+                cur->next = nex->next;
+                nex->next = pre->next;
+                pre->next = nex;
+                nex = cur->next;
             }
-            if(oh==nullptr)
-            {
-                oh = th;
-                ot = tt;
-            }
-            else
-            {
-                ot->next = th;
-                ot = tt;
-            }
-            th = nullptr;
-            tt = nullptr;
-            n-=k;
+            pre = cur;
+            count-=k;
         }
-        ot->next = cur;
-        return oh;
+        return dummy->next;
     }
 };
