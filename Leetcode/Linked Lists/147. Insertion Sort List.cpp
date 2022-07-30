@@ -7,29 +7,27 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
 class Solution {
 public:
-    ListNode* insertionSortList(ListNode* head) {
-       ListNode* dummy = new ListNode(100000);
-       while(head)
-       {
-           ListNode* sortedList = dummy;
-           ListNode* unsortListNext = head->next;
-           
-           while(sortedList->next and sortedList->next->val<head->val)
-           {
-               sortedList = sortedList->next;
-           }
-           
-           head->next = sortedList->next;
-           sortedList->next = head;
-           head = unsortListNext;
-       }
-        return dummy->next;
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        if(headA==nullptr or headB==nullptr)
+            return headA;
+        ListNode* l1 = headA;
+        ListNode* l2 = headB;
+        while(l1!=l2)
+        {
+            if(l1==nullptr)
+                l1 = headB;
+            else
+                l1 = l1->next;
+            if(l2==nullptr)
+                l2 = headA;
+            else
+                l2 = l2->next;
+        }
+        return l2;
     }
 };
