@@ -1,0 +1,5 @@
+# Problem Link - https://leetcode.com/problems/combine-two-tables/
+
+select p.firstname, p.lastname, a.city, a.state
+from person p left join address a
+on p.personId = a.personId;
