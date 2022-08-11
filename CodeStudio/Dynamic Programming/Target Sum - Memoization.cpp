@@ -3,25 +3,31 @@
 #include<bits/stdc++.h>
 #define ll int
 
-ll dp[26][100000];
-ll tarSum(ll n, ll target, vector<int>&arr, ll ind, ll sum)
+ll tarSum(int n, int target, vector<int>& arr, ll ind, map<pair<ll,ll>, ll> & dp)
 {
     if(ind==0)
     {
-        if(sum==target and arr[0]==0)
+        if(target==0 and arr[0]==0)
             return 2;
-        if(sum + arr[ind] == target or sum - arr[ind] == target)
+        if(target==0 or target==arr[0])
             return 1;
         return 0;
     }
-    if(dp[ind][sum]!=-1)
-        return dp[ind][sum];
-    ll a = tarSum(n,target,arr,ind-1,sum-arr[ind]);
-    ll b =  tarSum(n,target,arr,ind-1, sum + arr[ind]);
-    return dp[ind][sum] = a+b;
+    if(dp.count({ind,target})!=0)
+        return dp[{ind,target}];
+    ll notTake = tarSum(n,target,arr,ind-1,dp);
+    ll take = 0;
+    if(target-arr[ind]>=0)
+        take = tarSum(n,target-arr[ind],arr,ind-1,dp);
+    return dp[{ind,target}] = take + notTake;
 }
 
 int targetSum(int n, int target, vector<int>& arr) {
-    memset(dp,-1,sizeof(dp));
-    return tarSum(n,target,arr,n-1,0);
+    map<pair<ll,ll>,ll> dp;
+    ll sum = 0;
+    for(auto i:arr)
+        sum += i;
+    if((sum+target)&1)
+        return 0;
+    return tarSum(n,(sum+target)/2,arr,n-1,dp);
 }
