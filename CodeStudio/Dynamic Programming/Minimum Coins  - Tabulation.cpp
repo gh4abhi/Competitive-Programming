@@ -5,7 +5,7 @@
 
 int minimumElements(vector<int> &num, int x)
 {
-    vector<vector<ll>> dp(num.size(),vector<ll>(x+1,-1));
+    vector<vector<ll>> dp(num.size(),vector<ll>(x+1,0));
     for(ll i=0;i<=x;i++)
     {
         if(i%num[0]==0)
