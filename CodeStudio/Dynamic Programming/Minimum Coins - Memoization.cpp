@@ -3,26 +3,27 @@
 #include<bits/stdc++.h>
 #define ll long long
 
+ll miniEle(vector<int> &num, ll sum, ll ind, vector<vector<ll>> &dp)
+{
+    if(ind==0)
+    {
+        if(sum%num[0]==0)
+            return sum/num[0];
+        return 1e9;
+    }
+    if(dp[ind][sum]!=-1)
+        return dp[ind][sum];
+    ll notTake = miniEle(num,sum,ind-1,dp);
+    ll take = 1e9;
+    if(sum-num[ind]>=0)
+        take = 1 + miniEle(num,sum-num[ind],ind,dp);
+    return dp[ind][sum] = min(take,notTake);
+}
+
 int minimumElements(vector<int> &num, int x)
 {
     vector<vector<ll>> dp(num.size(),vector<ll>(x+1,-1));
-    for(ll i=0;i<=x;i++)
-    {
-        if(i%num[0]==0)
-            dp[0][i] = i/num[0];
-        else
-            dp[0][i] = 1e9;
-    }
-    for(ll i=1;i<num.size();i++)
-    {
-        for(ll j=0;j<=x;j++)
-        {
-            dp[i][j] = dp[i-1][j];
-            if(j>=num[i])
-                dp[i][j] = min(dp[i][j],1+dp[i][j-num[i]]);
-        }
-    }
-    ll ans =  dp[num.size()-1][x];
+    ll ans = miniEle(num,x,num.size()-1,dp);
     if(ans>=1e9)
         return -1;
     return ans;
