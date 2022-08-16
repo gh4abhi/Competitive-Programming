@@ -14,7 +14,7 @@ bool isPossible(vector<ll>& positions, ll x, ll c)
 
 int chessTournament(vector<int> positions , int n ,  int c){
     sort(positions.begin(),positions.end());
-    ll start = 1, end = 1e18;
+    ll start = 1, end = positions[n-1];
     while(start<=end)
     {
         ll mid = start + (end-start)/2;
