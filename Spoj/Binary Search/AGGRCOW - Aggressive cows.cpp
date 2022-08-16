@@ -340,8 +340,8 @@ void its_Function() {
  vector<ll> vect(n);
  forl(n)
     cin>>vect[i];
- ll start = 1, end = 1e18;
  sort(full(vect));
+ ll start = 1, end = vect[n-1];
  while(start<=end)
  {
     ll mid = start + (end-start)/2;
