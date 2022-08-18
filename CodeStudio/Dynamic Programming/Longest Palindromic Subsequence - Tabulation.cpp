@@ -6,7 +6,7 @@
 ll lcs(string s, string t)
 {
     ll m = s.length(), n = t.length();
-    vector<vector<ll>> dp(m+1,vector<ll>(m+1,0));
+    vector<vector<ll>> dp(m+1,vector<ll>(n+1,0));
     for(ll i=1;i<m+1;i++)
     {
         for(ll j=1;j<n+1;j++)
