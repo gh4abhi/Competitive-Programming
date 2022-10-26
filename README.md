@@ -3,7 +3,7 @@ This repository contains solution of various problems present on various competi
 | |PROFILE|
 |----------------|-
 |Codeforces|`gh4abhis`          
-|Codechef| `abhishek_246`        
+|Codechef| `gh4abhisshri`        
 |Leetcode|`gh4abhi`
 |Hackerrank|`gh4abhi`
 |GeeksForGeeks|`gh4abhi`
