@@ -1,42 +1,25 @@
-// Problem Link - https://leetcode.com/problems/linked-list-random-node/description/
+// Problem Link - https://leetcode.com/contest/biweekly-contest-99/problems/split-with-minimum-sum/
 
 #define ll int
 
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
 class Solution {
 public:
-    ListNode* head;
-    Solution(ListNode* head) {
-        this->head = head;
-        std::srand(std::time(0));
+    ll mini(ll ind, ll a, ll b, string &op)
+    {
+        if(ind==op.length())
+            return a + b;
+        return min(mini(ind+1,a*10+(op[ind]-'0'),b,op),mini(ind+1,a,b*10+(op[ind]-'0'),op));
     }
     
-    int getRandom() {
-        ll count = 0;
-        ListNode* ans;
-        ListNode* cur = head;
-        while(cur)
+    int splitNum(int num) {
+        string op = "";
+        ll n = num;
+        while(n)
         {
-            count++;
-            if(std::rand()%count==0)
-                ans = cur;
-            cur = cur->next;
+            op += to_string(n%10);
+            n/=10;
         }
-        return ans->val;
+        sort(op.begin(),op.end());
+        return mini(0,0,0,op);
     }
 };
-
-/**
- * Your Solution object will be instantiated and called as such:
- * Solution* obj = new Solution(head);
- * int param_1 = obj->getRandom();
- */
