@@ -1,0 +1,3 @@
+Notes - 
+
+1. While dealing with problems related to a particular value divisible by k take note of remainder of that value. For negative remainders use (sum+k)%k till the time sum becomes positive. If you are solving above problem in an array, the remainder will re-occur if a particular value that is a divisible of k has occurred in between.
