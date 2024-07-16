@@ -1,3 +1,65 @@
-Notes - 
+1. As a backend developer, I consistently deliver code that meets the specified requirements. My approach involves : (a) Bridging the Requirements Gap: To ensure precise API development, I delve into user stories and flowcharts to gain a comprehensive grasp of functionalities. This proactive approach closes potential gaps in requirement understanding. (b) Implementation: I write efficient and clean code, adhering to best practices and coding standards. This includes writing comprehensive JUnit tests to cover all possible scenarios. (c) Elevating Code Through Collaboration: Regular code reviews with my team lead foster a collaborative environment. (d) Deployment: Once the code meets all standards and passes all tests, I handle the deployment process, ensuring a smooth transition to production. By following these steps I was able to maintain 100% compliance to HLD/LLD in the project.
 
-1. While dealing with problems related to a particular value divisible by k take note of remainder of that value. For negative remainders use (sum+k)%k till the time sum becomes positive. If you are solving above problem in an array, the remainder will re-occur if a particular value that is a divisible of k has occurred in between.
+2. I am dedicated to adhering to the defined sprint plan, ensuring my work aligns with the sprint goals and timelines. My approach includes:
+(a) Meticulous Planning: I actively contribute to thorough sprint planning by setting realistic and achievable goals during sprint meetings.
+(b) Agile Expertise: I leverage tools like Mastercraft to effectively track progress and manage tasks throughout the sprint.
+(c) Communication Cornerstone: I prioritize clear and consistent communication within the team.
+(d) Consistent Performance: I have a history of consistently delivering tasks before the designated sprint deadlines. This dedication minimizes delays and ensures project milestones are met on time.
+(e) Managing Last-Minute Needs: I demonstrate exceptional adaptability by effectively handling critical tasks assigned even at the end of the delivery phase.
+(f) Quality and Timeliness: My commitment to sprint planning has consistently resulted in timely deliveries and high-quality outcomes.
+
+
+3. Adherence to internal client specified processes and systems is foundational for achieving zero defect delivery in software development. As a backend developer, I prioritize understanding and implementing these processes meticulously.
+
+(a) Firstly, I ensure a comprehensive understanding of the client's requirements and specifications. This includes adhering strictly to coding standards, architectural guidelines, and best practices tailored to each project.
+(b) Quality assurance plays a critical role in our approach. I implement robust testing methodologies such as unit testing, integration testing, and acceptance testing at various stages of development.
+(c) Additionally, regular code reviews and peer feedback sessions are integral to validating adherence to specified processes. 
+(d) By leveraging tools like SonarQube and Fortify for static code analysis, I further enhance our ability to identify and address code quality issues proactively.
+
+4. I prioritize maintaining high code quality and security, ensuring minimal high or critical category bugs are captured in Sonar or Fortify scans. My approach includes:
+
+(a) Proactive Defense: I leverage static code analysis tools like SonarQube and Fortify to identify and fix potential issues early, ensuring a secure and compliant codebase from the start.
+(b) Continuous Learning: I actively learn from senior developers' code, analyzing their solutions to refine my own coding structure and problem-solving skills.
+(c) Standards Champion: My commitment to established coding guidelines ensures consistent, clear, and maintainable code, minimizing bugs identified in SonarQube and Fortify scans (targeting less than 5 high/critical issues per module).
+Early Integration: I incorporate automated testing frameworks early in development for continuous integration and immediate feedback, catching bugs as soon as possible.
+(d) Collaboration is Key: I actively participate in peer code reviews, fostering collaboration and identifying potential issues early.
+Refactoring for Resilience: I allocate time for regular refactoring, reducing technical debt and improving code quality for long-term maintainability.
+(e) Scans & Fixes: SonarQube and Fortify are embedded in my workflow, enabling frequent code scans and prompt issue resolution.
+
+5. I strictly adhere to the GitLab feature branching pipeline process for all new Change Requests (CRs) and ensure smooth handling of SIT, UAT, and PROD issues as per the defined process. My approach includes:
+
+(a) Feature Branching: For each new CR, I create a dedicated feature branch in GitLab, ensuring that all changes are isolated and do not affect the main codebase until thoroughly tested and approved.
+(b) Pipeline Integration: I integrate changes into the GitLab CI/CD pipeline, ensuring automated builds, tests, and deployments are triggered at appropriate stages.
+(c) Continuous Testing: I ensure that all changes undergo rigorous testing in the System Integration Testing (SIT) environment, addressing any issues promptly to maintain code quality.
+(d) User Acceptance Testing (UAT): I work closely with stakeholders during the UAT phase, ensuring that all requirements are met and any issues identified are resolved according to the defined process.
+(e) Production Deployment: I follow the defined process for deploying changes to the Production (PROD) environment, ensuring minimal downtime and smooth transitions.
+(f) Issue Resolution: For any issues that arise in SIT, UAT, or PROD, I follow the defined process to investigate, resolve, and document the issues promptly.
+
+6. I prioritize the timely closure of post-implementation defects raised by customers, ensuring adherence to the prescribed Service Level Agreements (SLAs). My approach includes:
+
+(a) Severity-based Prioritization: I prioritize defects based on severity and impact, ensuring critical fixes happen first.
+(b) Agile Defect Management: Tools like Jira help me track defect status, assign tasks, and monitor progress for timely resolution.
+(c) Learning from Every Issue: I conduct root cause analysis to prevent similar issues and use the data to continuously improve our development process.
+(d) Cross-functional Collaboration: By working closely with other teams, we leverage combined expertise to expedite resolutions.
+(e) Proactive Monitoring: I continuously monitor defect trends and feedback to identify patterns and proactively implement preventive measures.
+(f) Transparency is Key: Regular updates on defect status and resolution timelines keep stakeholders informed, managing expectations.
+
+7. Ensuring thorough JUnit coverage is critical to minimizing code bugs and preventing defect slippage during System Integration Testing (SIT) and User Acceptance Testing (UAT). As a backend developer, I emphasize extensive test coverage throughout all development phases to maintain high software quality.
+
+Firstly, I meticulously plan and implement JUnit test cases to encompass both functional and edge cases of the codebase. This proactive approach helps identify and resolve potential issues early in the development cycle, reducing the chances of bugs progressing to higher testing environments like SIT and UAT.
+
+Automated testing plays a vital role in our strategy. By automating JUnit tests, I ensure consistent and repeatable testing of code changes, enabling faster detection of defects and speeding up the testing process. This method enhances efficiency and improves the reliability of our software by verifying functionality against expected outcomes.
+
+Furthermore, continuous integration practices support our efforts. Integrating JUnit tests into our CI/CD pipeline ensures every code change is automatically tested, providing immediate feedback on the impact of changes and allowing for prompt issue resolution.
+
+By adhering to these practices, I contribute to the delivery of stable and high-quality software solutions that meet rigorous testing standards in SIT and UAT, thereby enhancing overall project success and client satisfaction.
+
+8. I improved my Java competency to E2 and watched several YouTube tutorials on Spring Framework and Spring Boot. I actively seek guidance and mentorship from senior developers to recognize and improve gaps in my core technical skills. I am currently enrolled in Udemy courses provided by TCS to enhance my skills.
+
+9. I explored and identified training programs and courses that align with my current technical job responsibilities. I actively watch YouTube and Udemy tutorials to upskill myself and broaden my knowledge. I apply this knowledge to current projects and tasks, demonstrating practical understanding and improvement. I have completed 32 courses on iEvolve Learner and have 710 learning points.
+
+*************************************************************************************************************************************
+
+Attributes
+
+1. 
