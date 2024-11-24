@@ -320,61 +320,27 @@ void io(ll r)
 }
 //------------------------------------------------------------------Code--------------------------------------------------------------------------------------------
 
-bool check(ll a, ll &ka, ll &pra, ll &r)
+bool isPossible(ll m, ll x)
 {
-    // cout<<r<<" ";
-    if(ka>=a)
-        return true;
-    ll rem = a-ka;
-    if(r-pra*rem>=0)
+    ll a = 0;
+    ll v = 2;
+    ll s = 1;
+    while(s*v*v*v<=x)
     {
-        r -= pra*rem;
-        return true;
+        cout<<s*v*v*v<<endl;
+        a++;
+        v++;
+        if(s*v*v*v>x)
+            s++,v=2;
     }
-    return false;
-} 
-
-bool isPossible(string &str, ll x, ll b, ll c, ll s, ll kb, ll kc, ll ks, ll pb, ll pc, ll ps, ll r)
-{   
-    // cout<<x<<endl;
-    return check(b*x,kb,pb,r) && check(s*x,ks,ps,r) && check(x*c,kc,pc,r);
+    return a>=m;
 }
 
 
 void its_Function() {
-
-    string str = "";
-    cin>>str;
-    ll b = 0, c = 0, s = 0;
-    
-    ll kb,kc,ks,pb,pc,ps,r;
-
-    cin>>kb>>ks>>kc>>pb>>ps>>pc>>r;
-
-    for(auto i:str)
-    {
-        if(i=='B')
-            b++;
-        else if(i=='C')
-            c++;
-        else
-            s++;
-    }
-
-    // cout<<b<<" "<<c<<" "<<s<<endl;
-
-    ll start = 0, end = 1e15;
-    while(start<=end)
-    {
-        ll mid = start + (end-start)/2;
-        if(isPossible(str,mid,b,c,s,kb,kc,ks,pb,pc,ps,r))
-            start = mid+1;
-        else
-            end = mid-1;
-        // cout<<endl;
-    }
-
-    cout<<end;
+    ll m;
+    cin>>m;
+    cout<<m<<endl;
 }
  
 //--------------------------------------------------------------Main Function----------------------------------------------------------------------------------------------
@@ -382,17 +348,17 @@ int main()
 {
  
     BOOST;
-    // #ifndef ONLINE_JUDGE
-    // inOt();
-    // #endif
-    // cout<<fixed;
-    // ll t;
-    // cin>>t;
-    // while(t--)
-    // {
+    #ifndef ONLINE_JUDGE
+    inOt();
+    #endif
+    cout<<fixed;
+    ll t;
+    cin>>t;
+    while(t--)
+    {
         its_Function();
-    //     cout<<endl;
-    // }
+        cout<<endl;
+    }
 //    its_Function();
  
     return 0;
